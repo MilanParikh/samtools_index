@@ -9,7 +9,7 @@ workflow samtools_index {
         Int cpu = 16
         String memory = "32G"
         Int extra_disk_space = 0
-        String docker = "staphb/samtools:latest"
+        String docker = "mparikhbroad/samtools_index:latest"
         Int preemptible = 2
     }
 
