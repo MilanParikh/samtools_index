@@ -43,18 +43,18 @@ task run_index {
         Int preemptible
     }
 
-    String bam_index_name = bam_file + '.bai'
-
     command <<<
         set -e
 
-        samtools index -@ ~{cpu} ~{bam_file} ~{bam_index_name}
+        mkdir -p outputs
 
-        gsutil -m cp ~{bam_index_name} ~{output_dir}/
+        samtools index -@ ~{cpu} ~{bam_file} -o outputs/possorted_genome_bam.bam.bai 
+
+        gsutil -m cp outputs/possorted_genome_bam.bam.bai ~{output_dir}/
     >>>
 
     output {
-        File bam_bai_file = "~{bam_index_name}"
+        File bam_bai_file = "outputs/possorted_genome_bam.bam.bai "
     }
 
     runtime {
