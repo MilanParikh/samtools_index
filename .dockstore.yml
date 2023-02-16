@@ -1,0 +1,7 @@
+version: 1.2
+workflows:
+  - subclass: WDL
+    primaryDescriptorPath: /samtools_index.wdl
+    authors:
+      - name: Milan Parikh
+        email: mparikh@broadinstitute.org
